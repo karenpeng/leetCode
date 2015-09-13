@@ -68,7 +68,7 @@ var minSubArrayLen = function(s, nums) {
 
 
 //3.二分查找法
-//time complexity O(logn)
+//time complexity O(N logn)
 //http://www.cnblogs.com/grandyang/p/4501934.html
 /**
  * @param {number} s
