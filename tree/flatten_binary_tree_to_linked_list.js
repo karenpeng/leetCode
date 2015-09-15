@@ -19,6 +19,7 @@ function helper(root){
     var l = helper(root.left)
     var r = helper(root.right)
     
+    //这种做法挺神奇的其实
     if(l === null && r === null){
         return{
             head: root,
