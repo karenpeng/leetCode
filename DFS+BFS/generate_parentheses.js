@@ -1,3 +1,5 @@
+//http://bangbingsyb.blogspot.com/2014/11/leetcode-generate-parentheses.html
+
 /**
  * @param {number} n
  * @return {string[]}
@@ -12,7 +14,7 @@ var generateParenthesis = function(n) {
 
 function helper(list, result, n, l, r){
     if(l === n && r === n){
-        result.push(deepCopy(list))
+        result.push(concatinate(list))
         return
     }
     
@@ -22,19 +24,17 @@ function helper(list, result, n, l, r){
         list.pop()
     }
     
-    if(r < n){
+    if(r < l){
         list.push(')')
         helper(list, result, n, l, r+1)
         list.pop()
     }
 }
 
-function deepCopy(arr){
-    var _arr = []
+function concatinate(arr){
+    var output = ''
     arr.forEach(function(e){
-        _arr.push(e)
+        output += e
     })
-    return _arr
+    return output
 }
-
-console.log(generateParenthesis(3))
