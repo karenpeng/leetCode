@@ -1,0 +1,104 @@
+<html>
+<body></body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script type="text/javascript">
+var numIslands = function(grid) {
+    if(grid.length === 0) return 0
+    if(grid[0].length === 0) return 0
+    update(grid)
+    var counter = 0
+    for(var i = 0; i < grid.length; i++){
+        for(var j = 0; j < grid[0].length; j++){
+            if(grid[i][j] === '1'){
+              // setTimeout((function(i, j){
+              //   return function(){
+              //     helper(i, j, grid)
+              //     counter ++
+              //   }
+              // }(i, j), i * 1000)
+              helper(i, j, grid)
+              //setTimeout(function(){counter++}, 5000)
+            }
+        }
+    }
+    return counter
+};
+
+function helper(row, column, grid){
+  //setTimeout(function(){
+    if(row === -1 || row === grid.length || column === -1 || column === grid[0].length) return
+    
+    //don't forget this if statement
+    //only do something when it's one
+    if(grid[row][column] === '1'){
+        grid[row][column] = '0'
+        //setTimeout(function(){helper(row + 1, column, grid)}, 1000)
+        //setTimeout(function(){helper(row - 1, column, grid)}, 2000)
+        //setTimeout(function(){helper(row, column + 1, grid)}, 3000)
+        //setTimeout(function(){helper(row, column - 1, grid)}, 4000)
+        helper(row + 1, column, grid)
+        helper(row - 1, column, grid)
+        helper(row, column + 1, grid)
+        helper(row, column - 1, grid)
+        console.log('~~~~~')
+        //console.dir(grid)
+        update(grid)
+    }
+
+  //},2000)
+}
+
+
+var interval = 100
+var svg = d3.select('body').append('svg')
+.attr('width', 1000)
+.attr('height', 1000)
+
+function update(data){
+  var column = svg.selectAll('g')
+  .data(data)
+
+  //enter
+  column
+  .enter()
+  .append('g')
+  .attr('class', 'column')
+  .attr('transform', function(d, i){
+    return 'translate(100,' +(i * interval + 100) + ')'
+  })
+
+  var circle = column.selectAll('circle')
+  .data(function(d){return d})
+
+  //enter
+  circle
+  .enter()
+  .append('circle')
+  .attr('cx', function(d, i){
+    return i * interval
+  })
+  .attr('r', interval / 2)
+  .attr('fill', function(d){
+    //console.log(d)
+    return d === '0' ? 'blue' : 'green'
+  })
+
+  //update
+  circle
+  .attr('fill', function(d){
+    //console.log(d)
+    return d === '0' ? 'blue' : 'green'
+  })
+
+
+}
+
+//update(data)
+
+var data = [['1','1','1','1','0'],['1','1','0','1','0'],['1','1','0','0','0'],['0','0','0','0','0']]
+var data1 = [['1','1','0','0','0'],['1','1','0','0','0'],['0','0','1','0','0'],['0','0','0','1','1']]
+
+console.log(numIslands(data1))
+
+</script>
+</html>

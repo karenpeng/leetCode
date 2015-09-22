@@ -4,19 +4,13 @@
  */
 var removeDuplicates = function(nums) {
     if(nums.length <= 1) return nums.length
-    var i = 0
-    var j = 0
-    var count = 0
+    var i = 1
+    var j = 2
     while(j < nums.length){
-        if(nums[i] === nums[j]){
-            count++
-            if(count <= 2){
-                i++
-            }
-        }else if(nums[i] !== nums[j] && count > 1){
+        if(nums[i-1] !== nums[j]){
             nums[++i] = nums[j]
-            count = 0
         }
         j++
     }
+    return ++i
 };

@@ -32,3 +32,5 @@ function helper(row, column, grid){
         helper(row, column - 1, grid)
     }
 }
+
+//numIslands([['1','1','1','1','0'],['1','1','0','1','0'],['1','1','0','0','0'],['0','0','0','0','0']])
