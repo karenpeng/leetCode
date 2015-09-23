@@ -25,12 +25,12 @@ var numDistinct = function(s, t) {
                  //t ----a
                  //s ---------a
                  
-                           //不要        //要
+                           //不要s的a     //要s的a
                 f[i][j] = f[i][j-1] + f[i-1][j-1]
             }else{
                  //t ----a
                  //s ---------b
-                           //一定得要                
+                           //一定得不要s的b             
                 f[i][j] = f[i][j-1]
             }
         }
