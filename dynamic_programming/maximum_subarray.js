@@ -3,6 +3,7 @@
  * @return {number}
  */
 var maxSubArray = function(nums) {
+    //f[i]以i结尾的元素 它的maxsubarray是多少
     var f = []
     f[0] = nums[0]
     

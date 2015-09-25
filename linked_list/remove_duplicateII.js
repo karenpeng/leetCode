@@ -31,3 +31,5 @@ var deleteDuplicates = function(head) {
   }
   return dummy.next
 };
+
+//我觉得这个我会永远记不住哎。。。 T_T
