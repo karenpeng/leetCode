@@ -3,7 +3,9 @@
  * @param {number} k
  * @return {string}
  */
+//
 //leetcode won't allow this (time limit exceed T_T)
+//
 var getPermutation = function(n, k) {
     if(k===0) return ''
     var haha = factorial(n)
