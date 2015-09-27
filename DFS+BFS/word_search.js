@@ -11,8 +11,7 @@ var exist = function(board, word) {
             if(visited[i] === undefined) visited[i] = []
             visited[i][j] = false
         }
-    }
-    
+    } 
     for(var i =0; i < board.length; i++){
         for(var j = 0; j < board[0].length; j++){
             if (helper(i, j, board, word, 0, visited)) return true
@@ -36,6 +35,4 @@ function helper(row, column, board, word, index, visited){
     
     visited[row][column] = false
     return false
-    
-    
 }
