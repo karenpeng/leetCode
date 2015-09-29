@@ -37,7 +37,7 @@ function firstBit1(num){
 }
 
 function isBit1(num, index){
-    num = num >> index
+    num >>= index
     return (num & 1)
 }
 
