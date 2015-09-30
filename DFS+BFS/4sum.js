@@ -55,10 +55,8 @@ function twoSum(nums, target, start, end, list, result){
             while(nums[r] === nums[r+1])r--
         }else if(nums[l] + nums[r] > target){
             r--
-            while(nums[r] === nums[r+1])r--
         }else{
             l++
-            while(nums[l] === nums[l-1])l++
         }
     }
 }

@@ -13,8 +13,7 @@ var countPrimes = function(n) {
         for(var j = i * i; j < n; j+=i){
             prime[j] = false
         }
-    }
-    
+    }    
     for(var i = 2; i < n; i++){
         if(prime[i]) count++
     }
