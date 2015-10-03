@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
-    if(prerequisites.length === 0) return
+    if(prerequisites === []) return
     
     var graph = []
     var deepth = []
