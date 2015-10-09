@@ -38,7 +38,7 @@ function helper(head){
 function getMid(head){
     var fast = head.next
     var slow = head
-    //next next
+    //next next 因为你是想找mid的前一个
     while(fast.next !== null && fast.next.next !== null){
         fast = fast.next.next
         slow = slow.next

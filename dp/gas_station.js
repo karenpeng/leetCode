@@ -14,6 +14,7 @@ var canCompleteCircuit = function(gas, cost) {
     for(var i = 0; i < gas.length; i++){
         sum += gas[i] - cost[i]
         total += gas[i] - cost[i]
+        //注意这里是小于 不是小于等于
         if(sum < 0){
             sum = 0
             index = i +1
