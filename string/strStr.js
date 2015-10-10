@@ -8,17 +8,15 @@ var strStr = function(haystack, needle) {
     if(needle.length === 0) return 0
     var i = 0
     var j = 0
-    while(i < haystack.length){
-        if(haystack[i] === needle[j]){
-            while(haystack[i] === needle[j] && i < haystack.length){
-                i++
-                j++
-                if(j === needle.length) return i - j
-            }
-            j = 0
-        }else{
-            i++
+    
+    //be careful '<='
+    for(var i = 0; i <= haystack.length - needle.length; i++){
+        var remember = i
+        for(var j = 0; j < needle.length; j++){
+            if(haystack[remember] !== needle[j]) break
+            remember ++
         }
+        if(j === needle.length) return i
     }
     return -1
 };
