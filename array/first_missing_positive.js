@@ -42,9 +42,11 @@ console.log(firstMissingPositive([3,4,-1,1]))
 var firstMissingPositive = function(nums) {
     var i = 0
     var n = nums.length + 1
+
+    //这里是n!
     while(i < n){
         //1.如果A[i]<1或者A[i]>n。说明A[i]一定不是first missing positive。跳过
-        if( nums[i] < 0 || nums[i] > n )i++
+        if( nums[i] < 1 || nums[i] > n )i++
         //2.如果A[i] = i+1，说明A[i]已经在正确的位置，跳过
         else if(nums[i] === i + 1) i++
         //3.当A[i] = A[A[i]-1]时会陷入死循环。这种情况下直接跳过。
@@ -53,11 +55,15 @@ var firstMissingPositive = function(nums) {
             swap(nums, i, nums[i] - 1)
         }
     }
+
+    //这里也是n!!!
     for(var i = 0; i < n; i++){
         if(nums[i] !== i+1) return i + 1
     }
     return n + 1
 };
+
+//注意写成n  考虑一下空input的情况
 
 function swap(arr, i, j){
     var tmp = arr[i]

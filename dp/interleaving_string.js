@@ -5,7 +5,10 @@
  * @return {boolean}
  */
 var isInterleave = function(s1, s2, s3) {
+
+    //don't forget this!!!
     if(s1.length + s2.length !== s3.length) return false
+        
     var f = []
     f[0] = []
     f[0][0] = true
