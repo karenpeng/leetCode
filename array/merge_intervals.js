@@ -11,6 +11,7 @@
  */
 var merge = function(intervals) {
     var result = []
+    //don't forget to sort it first!!!
     intervals.sort(function(a, b){
         return a.start - b.start
     })
