@@ -20,11 +20,14 @@ var ladderLength = function(beginWord, endWord, wordList) {
         level ++
         for(var k = 0; k < size; k++){
             var w = queue.shift()
+
             for(var i = 0; i < w.length; i++){
                 for(var j = 97; j <= 122; j++){
+
                     var myChar = String.fromCharCode(j)
                     if( myChar === w[i]) continue
                     var newWord = makeWord(w, i, char)
+                
                     if(newWord === endWord) return level
                     if(!hash.hasOwnProperty(newWord) && wordList.has(newWord)){
                         hash[newWord] = true

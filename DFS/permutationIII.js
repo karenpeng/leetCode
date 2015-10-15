@@ -30,7 +30,9 @@ function helper(list, result, nums, visited){
         list.pop()
         visited[i] = false
         //注意是往前看
-        while(i< nums.length - 1 && nums[i+1] === nums[i]) i++
+        if(i < nums.length - 1){
+            while(nums[i] === nums[i+1]) i++
+        }
     }
 }
 
