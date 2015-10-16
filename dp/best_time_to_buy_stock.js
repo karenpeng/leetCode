@@ -8,6 +8,9 @@ var maxProfit = function(prices) {
     for(var i = 0; i < prices.length; i++){
        max = Math.max(max, prices[i] - min)
        min = Math.min(min, prices[i])
+       console.log(max, min)
     }
     return max
 };
+
+console.log(maxProfit([1,2]))
