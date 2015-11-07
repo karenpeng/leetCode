@@ -23,6 +23,7 @@ public class Solution {
           
           //第二种情况，加起来是0
           if(map.containsKey(sum)){
+            //我和相同值的后一个
             result.add(map.get(sum) + 1);
             result.add(i);
             return result;

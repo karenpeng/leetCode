@@ -20,6 +20,7 @@ var longestConsecutive = function(nums) {
             inCrease = 1
             max = Math.max(max, deCrease)
         }else if(nums[i-1] !== nums[i]){
+            //remember to reset it
             inCrease = 1
             deCrease = 1
         }

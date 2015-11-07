@@ -29,6 +29,11 @@ function helper(list, result, nums, visited){
         helper(list, result, nums, visited)
         list.pop()
         visited[i] = false
+        //below won't work
+        // if(i > 1){
+        //     while(nums[i-1] === nums[i]) i++
+        // }
+        //omg why is this so important?
         //注意是往前看
         if(i < nums.length - 1){
             while(nums[i] === nums[i+1]) i++

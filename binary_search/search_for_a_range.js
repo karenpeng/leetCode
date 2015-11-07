@@ -34,3 +34,54 @@ var searchRange = function(nums, target) {
     
     return [leftBounce, rightBounce]
 };
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+    if(nums.length === 0) return [-1, -1]
+    return helper(0, nums.length-1, nums, target)
+};
+
+function helper(_start, _end, arr, target){
+  var start = _start
+  var end = _end
+  var leftBound, rightBound
+  //search for left bound
+  //first element that is equal to target
+  while(start + 1 < end){
+    var mid = Math.floor((start + end) / 2)
+    if(target === arr[mid]){
+      end = mid
+    }else if(target > arr[mid]){
+      start = mid
+    }else{
+      end = mid - 1
+    }
+  }
+  console.log(start, end)
+  if(target === arr[start]) leftBound = start
+  else if(target === arr[end])leftBound = end
+  else return [-1, -1]
+
+  //search for right bound
+  //last element that is equal to target
+  start = leftBound
+  end = _end
+  while(start + 1 < end){
+    mid = Math.floor((start + end) / 2)
+    if(target === arr[mid]){
+      start = mid
+    }else if(target < arr[mid]){
+      end = mid
+    }else{
+      start = mid + 1
+    }
+  }
+  if(target === arr[end]) rightBound = end
+  else if(target === arr[start]) rightBound = start
+  
+  return [leftBound, rightBound]
+}
