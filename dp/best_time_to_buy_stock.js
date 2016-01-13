@@ -14,3 +14,19 @@ var maxProfit = function(prices) {
 };
 
 console.log(maxProfit([1,2]))
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    if(prices.length === 0) return 0
+    var min = prices[0]
+    var max = 0
+    for(var i = 1; i < prices.length; i++){
+        var result = prices[i] - min;
+        max = Math.max(max, result);
+        min = Math.min(min, prices[i]);
+    }
+    return max;
+};
