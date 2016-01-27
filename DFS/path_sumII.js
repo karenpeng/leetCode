@@ -19,7 +19,6 @@ var pathSum = function(root, sum) {
 };
 
 function helper(root, list, result, sum){
-    if(root === null) return
     
     list.push(root.val)
     
