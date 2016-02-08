@@ -1,3 +1,5 @@
+//'*' means match zero or more same elements
+
 console.log(test('annnts', 'annnts'))
 console.log(test('annnts', 'a*ts'))
 console.log(test('annnts', 'a*nts'))
