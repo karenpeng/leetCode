@@ -31,7 +31,6 @@ var minSubArrayLen = function(s, nums) {
  */
 var minSubArrayLen = function(s, nums) {
     if(nums.length === 0) return 0
-    var i = 0
     var start = 0
     var end = 0
     var l = Infinity
