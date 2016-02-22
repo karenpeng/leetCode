@@ -31,7 +31,7 @@ function normal(str, reg){
         }
     
     }
-    return true
+    return i === str.length && j === reg.length
 }
 
 //有星星就判断 星星代表当前char 或 星星不代表任何
