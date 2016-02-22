@@ -11,6 +11,43 @@
  * @return {Interval[]}
  */
 var insert = function(intervals, newInterval) {
+    var inserted = false
+    var result = []
+    intervals.forEach(function(item){
+        if(inserted) {
+            result.push(item)
+            return
+        }
+        if(item.end < newInterval.start){
+            result.push(item)
+            return
+        }
+        if(item.start > newInterval.end){
+            result.push(newInterval)
+            result.push(item)
+            inserted = true
+            return
+        }
+        newInterval.start = Math.min(item.start, newInterval.start)
+        newInterval.end = Math.max(item.end, newInterval.end)
+    })
+    if(!inserted) result.push(newInterval)
+    return result
+};
+
+/**
+ * Definition for an interval.
+ * function Interval(start, end) {
+ *     this.start = start;
+ *     this.end = end;
+ * }
+ */
+/**
+ * @param {Interval[]} intervals
+ * @param {Interval} newInterval
+ * @return {Interval[]}
+ */
+var insert = function(intervals, newInterval) {
     var bucket = [];
     var insert = false;
     intervals.forEach(function(item){
