@@ -10,6 +10,40 @@
  * @return {Interval[]}
  */
 var merge = function(intervals) {
+    intervals.sort(function(a, b){
+        return a.start - b.start
+    })
+    var result = []
+    for(var i = 0; i < intervals.length;i++){
+        if(i < intervals.length - 1){
+            var f = intervals[i]
+            var b = intervals[i+1]
+            if(f.end < b.start) result.push(f)
+            else{
+                intervals[i+1].start = intervals[i].start
+                intervals[i+1].end = Math.max(intervals[i+1].end, intervals[i].end)
+            }
+        }else{
+            result.push(intervals[intervals.length-1])
+        }
+    }
+    
+    return result
+};
+
+
+/**
+ * Definition for an interval.
+ * function Interval(start, end) {
+ *     this.start = start;
+ *     this.end = end;
+ * }
+ */
+/**
+ * @param {Interval[]} intervals
+ * @return {Interval[]}
+ */
+var merge = function(intervals) {
   if(intervals.length <= 1) return intervals
   intervals.sort(function(a, b){
       return a.start - b.start || a.end - b.end
